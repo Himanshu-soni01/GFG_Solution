@@ -1,0 +1,40 @@
+class Solution:
+    def primeList(self, head : Optional['Node']) -> Optional['Node']:
+        # code here
+        temp=head
+        while temp:
+            if not self.chkprime(temp.data):
+                temp.data = self.makeprime(temp.data)
+            temp=temp.next
+        return head
+            
+    def chkprime(self,num):
+        if num==1:
+            return False
+        if num==2 or num==3:
+            return True
+            
+        for i in range(2,int(sqrt(num))+1):
+            if num%i == 0:
+                return False
+        return True
+    
+    def makeprime(self,num):
+        if num==1:
+            return 2
+        big=num+1
+        small=num-1
+        
+        while small>=3:
+            if not self.chkprime(small):
+                small-=1
+                continue
+            break
+        
+        while not self.chkprime(big):
+            big+=1
+        
+        if (num-small)==(big-num) or num-small<big-num:
+            return small
+        else:
+            return big
