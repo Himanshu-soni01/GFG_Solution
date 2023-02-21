@@ -1,6 +1,5 @@
 class Solution:
     def minIteration(self, N, M, x, y):
-        #code here
         if N*M==1:
             return 0
         ans =0
