@@ -13,9 +13,7 @@ class Solution:
         for i in range(len(S)-1,-1,-1):
             print("1 : ",stack)
             c = S[i]
-            f_ = s1[0]
-            s_ = s1[1]
-            if len(stack)>0 and c==f_ and stack[-1]==s_:
+            if len(stack)>0 and c==s1[0] and stack[-1]==s1[1]:
                 stack.pop()
                 amt += X
             else:
@@ -29,16 +27,12 @@ class Solution:
         for i in range(len(S)-1,-1,-1):
             print(S)
             c = S[i]
-            f_ = s2[0]
-            s_ = s2[1]
-            if len(stack)>0 and c==f_ and stack[-1]==s_:
+            if len(stack)>0 and c==s2[0] and stack[-1]==s2[1]:
                 stack.pop()
                 amt += Y
             else:
                 stack.append(c)
         return amt
-    
-
 
 if __name__ == '__main__':
     t = int(input())
